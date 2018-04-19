@@ -16,6 +16,16 @@ use the smaller dependency if possible. In particular this means chosing [Base][
 over Core_kernel over [Core][core], similarly with Async_kernel which is preferable to
 [Async][async]. This is to allow for higher portability and fewer dependencies.
 
+Usage
+-----
+
+You need to use OPAM (preferably OPAM 2, though version 1 will probably also
+work for now) and then add this repository to your installation:
+
+```sh
+opam repository add micro https://github.com/issuu/opam-repository-micro.git
+```
+
 [common]: https://github.com/issuu/ocaml-common
 [base]: https://opensource.janestreet.com/base/
 [core]: https://opensource.janestreet.com/core/
