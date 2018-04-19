@@ -1,0 +1,13 @@
+opam-version: "1.2"
+maintainer: "Marek Kubica <mku@issuu.com>"
+author: "Team Raccoon"
+homepage: "https://github.com/issuu/lifesigns"
+dev-repo: "git@github.com:issuu/lifesigns.git"
+bug-reports: "https://github.com/issuu/lifesigns/issues"
+build: [["jbuilder" "build" "-p" name "-j" jobs]]
+build-test: [["jbuilder" "runtest" "-p" name "-j" jobs]]
+depends: [
+  "jbuilder" {build}
+  "async_kernel" {>= "v0.9" & < "v0.12"}
+  "core_kernel" {>= "v0.9" & < "v0.12"}
+]

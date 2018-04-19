@@ -1,0 +1,2 @@
+A heartbeat signal written to a file. Useful for heathchecks in Docker
+containers.
