@@ -1,0 +1,2 @@
+A pool of background threads that can be used to defer computation and use
+Async with non-async code.
