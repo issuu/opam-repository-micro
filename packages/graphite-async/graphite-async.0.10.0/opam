@@ -1,0 +1,18 @@
+opam-version: "1.2"
+maintainer: "Marek Kubica <mku@issuu.com>"
+author: "Team Raccoon"
+homepage: "https://github.com/issuu/graphite-async"
+dev-repo: "git@github.com:issuu/graphite-async.git"
+bug-reports: "https://github.com/issuu/graphite-async/issues"
+doc: "https://issuu.github.io/graphite-async/"
+build: [["dune" "build" "-p" name "-j" jobs]]
+build-test: [["dune" "runtest" "-p" name "-j" jobs]]
+depends: [
+  "dune" {build}
+  "async_kernel" {>= "v0.9" & < "v0.12"}
+  "core_kernel" {>= "v0.9" & < "v0.12"}
+  "amqp-client-async" {>= "2.0.0" & < "3.0.0"}
+  "ppx_let" {>= "v0.9" & < "v0.12"}
+  "alcotest" {test}
+  "fmt" {test}
+]
