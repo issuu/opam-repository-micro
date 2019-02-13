@@ -1,0 +1,26 @@
+opam-version: "2.0"
+maintainer: "Issuu Raccoons <racoon@issuu.com>"
+synopsis: "Ocaml implementation of the user agent parse rules from https://github.com/ua-parser/uap-core"
+homepage: "https://github.com/issuu/uap-ocaml"
+doc: "https://issuu.github.io/uap-ocaml/"
+dev-repo: "git+https://github.com/issuu/uap-ocaml.git"
+bug-reports: "https://github.com/issuu/uap-ocaml/issues"
+build: [["dune" "build" "-p" name "-j" jobs]]
+run-test: [["dune" "runtest" "-p" name "-j" jobs]]
+depends: [
+  "alcotest" {with-test & >= "0.8.3" & < "0.9.0"}
+  "base" {>= "v0.11" & < "v0.12"}
+  "dune" {build}
+  "ppx_deriving" {build}
+  "ppx_let" {build}
+  "stdio" {>= "v0.11" & < "v0.12"}
+  "re" {>= "1.8.0" & < "2.0.0"}
+  "yaml" {build & >= "0.2.1" & < "0.3.0"}
+  "yojson" {>= "1.6.0" & < "2.0"}
+]
+authors: "Issuu Raccoon"
+url {
+  src:
+    "https://github.com/issuu/uap-ocaml/releases/download/0.1.1/user-agent-parser-0.1.1.tbz"
+  checksum: "md5=d0efa3d92a7c97f94fd40e6e6e92bcb1"
+}
