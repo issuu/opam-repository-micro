@@ -1,0 +1,22 @@
+opam-version: "2.0"
+maintainer: "Marek Kubica <mku@issuu.com>"
+homepage: "https://github.com/issuu/lifesigns"
+dev-repo: "git+https://github.com/issuu/lifesigns.git"
+bug-reports: "https://github.com/issuu/lifesigns/issues"
+doc: "https://issuu.github.io/lifesigns/"
+build: [["dune" "build" "-p" name "-j" jobs]]
+run-test: [["dune" "runtest" "-p" name "-j" jobs]]
+depends: [
+  "dune" {build}
+  "async_kernel" {>= "v0.9"}
+  "core_kernel" {>= "v0.9"}
+]
+synopsis: "A heartbeat signal written to a file"
+description: """
+Useful for health checks in Docker containers."""
+authors: "Team Raccoon"
+url {
+  src:
+    "https://github.com/issuu/lifesigns/releases/download/0.9.3/lifesigns-0.9.3.tbz"
+  checksum: "md5=43eccaa4483a93f0b80194052201990e"
+}
