@@ -1,0 +1,27 @@
+opam-version: "2.0"
+maintainer: "Marek Kubica <mku@issuu.com>"
+homepage: "https://github.com/issuu/thread-pool-async"
+doc: "https://issuu.github.io/thread-pool-async/"
+dev-repo: "git+https://github.com/issuu/thread-pool-async.git"
+bug-reports: "https://github.com/issuu/thread-pool-async/issues"
+build: [["dune" "build" "-p" name "-j" jobs]]
+run-test: [["dune" "runtest" "-p" name "-j" jobs]]
+depends: [
+  "dune" {build}
+  "async_kernel" {>= "v0.9"}
+  "async_unix" {>= "v0.9"}
+  "base" {>= "v0.9"}
+  "ppx_let" {>= "v0.9"}
+  "alcotest" {with-test}
+  "alcotest-async" {with-test}
+  "core" {with-test & >= "v0.9"}
+]
+synopsis: "A pool of background threads that can be used to defer computation and use Async with non-async code"
+description: """
+Useful for running blocking code alongside non-blocking code."""
+authors: "Team Raccoon"
+url {
+  src:
+    "https://github.com/issuu/thread-pool-async/releases/download/0.12.0/thread-pool-async-0.12.0.tbz"
+  checksum: "md5=9f0e0d79343941cafa19c0b8c16c64d0"
+}
