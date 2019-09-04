@@ -1,0 +1,42 @@
+opam-version: "2.0"
+homepage: "https://github.com/issuu/ocaml-mysql-aide"
+dev-repo: "git+https://github.com/issuu/ocaml-mysql-aide.git"
+bug-reports: "https://github.com/issuu/ocaml-mysql-aide/issues"
+doc: "https://issuu.github.io/ocaml-mysql-aide/"
+maintainer: "Team Platypus <platypus@issuu.com>"
+build: [["dune" "build" "-p" name "-j" jobs]]
+run-test: [["dune" "runtest" "-p" name "-j" jobs]]
+depends: [
+  "alcotest" {with-test}
+  "alcotest-async" {with-test}
+  "async_kernel" {>= "0.10"}
+  "async_unix" {>= "0.10"}
+  "core_kernel" {>= "v0.10"}
+  "dune" {build}
+  "mysql" {>= "1.2.2"}
+  "ocaml" {>= "4.04.1"}
+  "ppx_mysql" {>= "1.1"}
+  "ppx_deriving" {>= "4.2.2"}
+  "thread-pool-async" {>= "0.13.0"}
+]
+synopsis: "Helps interact with MySQL from asynchronous OCaml code"
+description: """
+This library exposes an opinionated asynchronous interface for using MySQL.
+
+Undeneath it relies on fairly ancient MySQL C bindings. It assumes that
+ppx_mysql is used to compose and run MySQL queries. Furthermore, it uses a
+thread pool to execute queries outside of the Async scheduler and communicate
+the results back to it.
+
+Besides individual queries it provides an interface for executing MySQL
+transactions where individual queries may depend on other asynchronous work.
+"""
+authors: "Martin Slota <msl@issuu.com>"
+url {
+  src:
+    "https://github.com/issuu/ocaml-mysql-aide/releases/download/0.1.0/mysql_aide-0.1.0.tbz"
+  checksum: [
+    "sha256=5b05ec10a3ac95bd464564d9a686da2e6c19cd0ea5d487c4d985aa3a00e726f4"
+    "sha512=f49a2dc6287691288c291d1dad45cc61ada415c0ce43fd5e34db54972e09bbac0e75a153204387c813c86a27861fa3ccf661543d41be784e09a4788cb10f874a"
+  ]
+}
