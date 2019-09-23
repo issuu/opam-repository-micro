@@ -1,0 +1,1 @@
+Convenience package for using ppx_mysql with Mysql and the identity monad for IO
