@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "Dario Teixeira <dte@issuu.com>"
+synopsis: "Convenience package for using ppx_mysql with Mysql and the identity monad for IO"
+description: """
+The ppx_mysql extension expects the existence of several modules in the current context.
+This package provides the definition of those modules for using ppx_mysql with Mysql
+(via OPAM's mysql package) and the identity monad for IO.
+"""
+homepage: "https://github.com/issuu/ppx_mysql"
+dev-repo: "git+https://github.com/issuu/ppx_mysql.git"
+bug-reports: "https://github.com/issuu/ppx_mysql/issues"
+doc: "https://issuu.github.io/ppx_mysql/"
+build: [["dune" "build" "-p" name "-j" jobs]]
+depends: [
+  "dune" {>= "1.4"}
+  "mysql" {>= "1.2" & < "2.0"}
+  "ocaml" {>= "4.06.0"}
+  "ppx_mysql" {= version}
+]
+authors: "Team Raccoons at Issuu"
+url {
+  src:
+    "https://github.com/issuu/ppx_mysql/releases/download/1.1.2/ppx_mysql-1.1.2.tbz"
+  checksum: [
+    "sha256=362134d1a1a4c1f811e4a0b95200b342dedea44ce94d5a579822e9f454460e57"
+    "sha512=e24217c3f445b3b8d41038b841fcd0fc690e5cefa6463a368a1fc5f7cfb026c33c9a8240215bc5465a4fdd0add31b3b641dacc579f4b40e68cfb78ea7fa162f3"
+  ]
+}
