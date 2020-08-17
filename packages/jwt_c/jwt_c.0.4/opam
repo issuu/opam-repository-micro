@@ -1,0 +1,43 @@
+opam-version: "2.0"
+synopsis: "Bindings to libjwt"
+description:
+  "OCaml bindings for libjwt (https://github.com/benmcollins/libjwt)"
+maintainer: ["Team Raccoons <racoon@issuu.com>"]
+authors: ["Team Raccoon"]
+homepage: "https://github.com/issuu/ocaml-libjwt"
+doc: "https://issuu.github.io/ocaml-libjwt/"
+bug-reports: "https://github.com/issuu/ocaml-libjwt/issues"
+depends: [
+  "dune" {>= "1.11"}
+  "alcotest" {with-test}
+  "ppx_deriving" {with-test}
+]
+build: [
+  ["dune" "subst"] {pinned}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/issuu/ocaml-libjwt.git"
+depexts: [
+  ["libjwt-dev"] {os-distribution = "debian"}
+  ["libjwt-dev"] {os-distribution = "ubuntu"}
+  ["libjwt"] {os-distribution = "homebrew"}
+]
+x-commit-hash: "5d183b0cdc5ed68009756c8d2af0bab6c703bad5"
+url {
+  src:
+    "https://github.com/issuu/ocaml-libjwt/releases/download/0.4/jwt_c-0.4.tbz"
+  checksum: [
+    "sha256=de332a93ee4f575c883cf2c49589f9caf7921338e6d07cf9e5c3f44622e0b83a"
+    "sha512=a211b0bd921f4e349d0568d088edc4910c1ae044a93ab874d0a7587b585f5be31d8affc94d25ad41f3f3bfcc567dc88af63a66f80c1835d15d8b0d40e63f6aa7"
+  ]
+}
