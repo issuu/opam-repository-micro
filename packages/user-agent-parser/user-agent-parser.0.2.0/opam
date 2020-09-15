@@ -1,7 +1,5 @@
-version: "0.2.0"
 opam-version: "2.0"
 maintainer: "Issuu Raccoons <racoon@issuu.com>"
-author: "Issuu Raccoon"
 synopsis: "OCaml implementation of the user agent parse rules of uap-core"
 homepage: "https://github.com/issuu/uap-ocaml"
 doc: "https://issuu.github.io/uap-ocaml/"
@@ -23,3 +21,13 @@ depends: [
 ]
 description: """
 OCaml implementation of the user agent parse rules from https://github.com/ua-parser/uap-core"""
+x-commit-hash: "970f5e19beb07d0dbfe56ce4a296b5a5db4212ed"
+authors: "Issuu Raccoon"
+url {
+  src:
+    "https://github.com/issuu/uap-ocaml/releases/download/0.2.0/user-agent-parser-0.2.0.tbz"
+  checksum: [
+    "sha256=97ffc46d818bb72942f59c7853ce32c06fac7ac8485b606fd7f8a962f1f04f04"
+    "sha512=165121289c249a8a500f756db3059bb7d5902ffc2171f2888f277b54190a8c18e955661353ee530506b3d0b9bfb87d4d0242804ce34fcda2acb9a706885a37d7"
+  ]
+}
