@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "Marek Kubica <mku@issuu.com>"
+synopsis: "Submits statistics to Graphite"
+description: """
+Submits statistics to Graphite
+
+Similar to statsd this library computes percentiles for requests. Stats are
+submitted via AMQP. Supports common OCaml and Jane Street data types
+"""
+homepage: "https://github.com/issuu/graphite-async"
+dev-repo: "git://git@github.com:issuu/graphite-async.git"
+bug-reports: "https://github.com/issuu/graphite-async/issues"
+doc: "https://issuu.github.io/graphite-async/"
+build: [["dune" "build" "-p" name "-j" jobs]]
+run-test: [["dune" "runtest" "-p" name "-j" jobs]]
+depends: [
+  "dune" {build & >= "1.9"}
+  "async_kernel" {>= "v0.9"}
+  "core_kernel" {>= "v0.9"}
+  "amqp-client-async" {>= "2.0.0"}
+  "ppx_let" {>= "v0.9"}
+  "ppx_deriving" {>= "4.2"}
+  "alcotest" {with-test}
+  "fmt" {with-test}
+]
+x-commit-hash: "66994c380814dd980dd2f103194907c698e7bed4"
+authors: "Team Raccoon"
+url {
+  src:
+    "https://github.com/issuu/graphite-async/releases/download/1.0.0/graphite-async-1.0.0.tbz"
+  checksum: [
+    "sha256=b1f335588f5ab2b052fd77e70e6ce0fffca5802287f33a46396c6b7eae2db957"
+    "sha512=1d663ab3dd1d0986aac6fb81ceca2f14d4f688626b65881079931d9568a9508df5db49ad2a6fc198ea880c2264869dc02afdbea527fe2cb13a3a2485b693b05c"
+  ]
+}
