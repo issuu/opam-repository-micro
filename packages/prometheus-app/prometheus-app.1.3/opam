@@ -1,0 +1,60 @@
+opam-version: "2.0"
+synopsis: "Client library for Prometheus monitoring"
+description: """\
+Applications can enable metric reporting using the `prometheus-app` opam package.
+This depends on cohttp and can serve the metrics collected above over HTTP.
+
+The `prometheus-app.unix` ocamlfind library provides the `Prometheus_unix` module,
+which includes a cmdliner option and pre-configured web-server.
+See the `examples/example.ml` program for an example, which can be run as:
+
+```shell
+$ dune exec -- examples/example.exe --listen-prometheus=9090
+If run with the option --listen-prometheus=9090, this program serves metrics at
+http://localhost:9090/metrics
+Tick!
+Tick!
+...
+```
+
+Unikernels can use `Prometheus_app` instead of `Prometheus_unix` to avoid the `Unix` dependency."""
+maintainer: "talex5@gmail.com"
+authors: ["Thomas Leonard" "David Scott"]
+license: "Apache-2.0"
+homepage: "https://github.com/issuu/prometheus"
+doc: "https://issuu.github.io/prometheus/"
+bug-reports: "https://github.com/issuu/prometheus/issues"
+depends: [
+  "ocaml" {>= "4.02.3"}
+  "dune" {>= "1.0"}
+  "prometheus" {= version}
+  "fmt"
+  "re"
+  "cohttp-lwt" {>= "4.0.0"}
+  "cohttp-lwt-unix" {>= "4.0.0"}
+  # We need the change of cohttp-async here:
+  # https://github.com/mirage/ocaml-cohttp/blob/e5a66f1c1e7c2e5051723e09260222994dff40cf/CHANGES.md?plain=1#L73
+  "cohttp-async" {>= "6.0.0~alpha2"}
+  "lwt" {>= "2.5.0"}
+  "async" {>= "v0.14"}
+  "ppx_let" {>= "v0.14"}
+  "cmdliner"
+  "alcotest" {with-test}
+  "asetmap"
+  "astring"
+  "logs" {>= "0.6.0"}
+]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+dev-repo: "git+https://github.com/issuu/prometheus.git"
+url {
+  src:
+    "https://github.com/issuu/prometheus/releases/download/v1.3/prometheus-v1.3.tbz"
+  checksum: [
+    "sha256=cd19b894685f095267baaf02bfbefe314c63a253120b2bf39025c68d53ad4050"
+    "sha512=2409bb4457e6a77dfabcea512a13da9b26de0aad051a4c9d3cf3d1989a1572e7675575c0ebc00c6a3442340905ec0fc8ce37dc7b2e74da0cf9423220ffbd757a"
+  ]
+}
+x-commit-hash: "ca1b6168d2cc5c72bfc1b98ccc7aaee09769d7c5"
